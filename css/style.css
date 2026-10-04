@@ -19,6 +19,18 @@ html, body {
 }
 
 /* ============================================================
+   ★ 布局变量：控制左右面板的起止位置
+   ============================================================ */
+:root {
+  /* 导航栏 padding-top(22) + About 图标+label(约 60px) = 约 82px */
+  --nav-about-bottom: 82px;
+  /* bottom-bar bottom(28) + bar 高度(约 30px) = 约 58px */
+  --bottom-bar-top: 58px;
+  /* 用户要求的 1.5 间距（1.5rem ≈ 24px） */
+  --panel-gap: 24px;
+}
+
+/* ============================================================
    3D 场景
    ============================================================ */
 #scene-container {
@@ -724,39 +736,42 @@ html, body {
 }
 
 /* ============================================================
-   左右面板
+   ★ 左右面板：从 About 下方 1.5rem 到 Created by 上方 1.5rem
    ============================================================ */
 #intro-left {
   position: fixed;
-  top: 0;
   left: 0;
   width: 38vw;
-  height: 100vh;
+  top: calc(var(--nav-about-bottom) + var(--panel-gap));
+  bottom: calc(var(--bottom-bar-top) + var(--panel-gap));
+  height: auto;
   z-index: 5;
   pointer-events: none;
 }
 
 #intro-right {
   position: fixed;
-  top: 0;
   right: 0;
   width: 38vw;
-  height: 100vh;
+  top: calc(var(--nav-about-bottom) + var(--panel-gap));
+  bottom: calc(var(--bottom-bar-top) + var(--panel-gap));
+  height: auto;
   z-index: 5;
   pointer-events: none;
 }
 
+/* ★ 面板：填满父容器，不用 justify-content: center */
 .intro-panel {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 2vw;
   pointer-events: none;
   transition: opacity 1.2s ease;
+  overflow: hidden;
 }
 
 .panel-main {
@@ -873,25 +888,29 @@ body[data-state="focus"] .panel-about {
 }
 
 /* ============================================================
-   文字块
+   ★ 文字块：flex 撑满整个可用高度
    ============================================================ */
 .intro-block {
-  margin-bottom: 40px;
+  margin-bottom: 0;
   pointer-events: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.intro-block:last-child {
-  margin-bottom: 0;
+  flex: 1;             /* ★ 撑满父容器 */
+  min-height: 0;       /* ★ 允许在 flex 中收缩 */
+  position: relative;
+  z-index: 1;
 }
 
 .float-inner {
   animation: floatUpDown 6.5s ease-in-out infinite;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  flex: 1;             /* ★ 撑满父容器 */
+  min-height: 0;       /* ★ 允许在 flex 中收缩 */
 }
 
 .intro-block:nth-child(1) .float-inner { animation-delay: 0s; }
@@ -912,7 +931,7 @@ body[data-state="focus"] .panel-about {
    文字样式（Arvo + Kaushan Script）
    ============================================================ */
 
-/* 小标签：Roboto 大写，宽字距 */
+/* 小标签 */
 .intro-label {
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
@@ -923,9 +942,10 @@ body[data-state="focus"] .panel-about {
   margin-bottom: 14px;
   padding-left: 0.4em;
   text-align: center;
+  flex-shrink: 0;
 }
 
-/* 主标题：Kaushan Script 手写体 */
+/* 主标题：Kaushan Script */
 .intro-title {
   font-family: 'Kaushan Script', 'Arvo', cursive;
   font-size: 36px;
@@ -937,10 +957,11 @@ body[data-state="focus"] .panel-about {
   text-shadow:
     0 0 20px rgba(96, 165, 250, 0.35),
     0 0 40px rgba(96, 165, 250, 0.15);
+  flex-shrink: 0;
 }
 
 .intro-title strong {
-  font-weight: 400;          /* Kaushan Script 只有一个字重 */
+  font-weight: 400;
   color: #ffffff;
   text-shadow:
     0 0 24px rgba(147, 197, 253, 0.6),
@@ -952,6 +973,7 @@ body[data-state="focus"] .panel-about {
   height: 1px;
   background: linear-gradient(90deg, transparent, #60a5fa, transparent);
   margin: 14px auto;
+  flex-shrink: 0;
 }
 
 /* 姓名 / ID */
@@ -974,7 +996,8 @@ body[data-state="focus"] .panel-about {
 }
 
 /* ============================================================
-   正文：Arvo，两端对齐 + 首行缩进
+   ★ 正文：flex:1 自动撑满，宽度同步，可滚动
+   ★ 滚动条已隐藏，滚轮 / 触摸仍可滚动
    ============================================================ */
 .intro-bio,
 .intro-text {
@@ -984,8 +1007,15 @@ body[data-state="focus"] .panel-about {
   line-height: 1.85;
   color: #faf6e9;
   letter-spacing: 0.005em;
+
+  /* ★ 宽度同步：两侧内容框宽度一致 */
+  width: 100%;
   max-width: 480px;
-  max-height: 58vh;
+
+  /* ★ 高度：撑满剩余空间（不再用固定 vh） */
+  flex: 1;
+  min-height: 0;
+
   margin: 16px auto 0;
   text-align: justify;
   text-justify: inter-word;
@@ -996,16 +1026,24 @@ body[data-state="focus"] .panel-about {
   padding: 14px 6px;
   scroll-behavior: smooth;
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* ★ 允许滚轮事件 */
+  pointer-events: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+
+  /* ★ 隐藏滚动条（滚轮仍可滚动） */
+  scrollbar-width: none;              /* Firefox */
+  -ms-overflow-style: none;           /* IE / 旧 Edge */
+
   transition: box-shadow .35s cubic-bezier(.22, .61, .36, 1);
 }
 
+/* ★ 隐藏滚动条（Chrome / Safari / Edge） */
 .intro-bio::-webkit-scrollbar,
 .intro-text::-webkit-scrollbar {
-  display: none;
   width: 0;
   height: 0;
+  display: none;
 }
 
 /* 段落：首行缩进 2 字 */
@@ -1023,7 +1061,7 @@ body[data-state="focus"] .panel-about {
   margin-bottom: 0;
 }
 
-/* 强调：粗体 + 纯白 */
+/* 强调 */
 .intro-text em {
   color: #ffffff;
   font-style: normal;
@@ -1035,7 +1073,7 @@ body[data-state="focus"] .panel-about {
   font-weight: 700;
 }
 
-/* 顶部 / 底部高光线 */
+/* 顶部高光线：向上还能滚动 */
 .intro-bio.can-scroll-up,
 .intro-text.can-scroll-up {
   box-shadow:
@@ -1043,6 +1081,7 @@ body[data-state="focus"] .panel-about {
     inset 0 8px 14px -8px rgba(96, 165, 250, 0.55);
 }
 
+/* 底部高光线：向下还能滚动 */
 .intro-bio.can-scroll-down,
 .intro-text.can-scroll-down {
   box-shadow:
@@ -1050,6 +1089,7 @@ body[data-state="focus"] .panel-about {
     inset 0 -8px 14px -8px rgba(96, 165, 250, 0.55);
 }
 
+/* 上下都有 */
 .intro-bio.can-scroll-up.can-scroll-down,
 .intro-text.can-scroll-up.can-scroll-down {
   box-shadow:
@@ -1064,7 +1104,7 @@ body[data-state="focus"] .panel-about {
 }
 
 /* ============================================================
-   有序列表（Learning Outcomes / Reflections）
+   有序列表
    ============================================================ */
 .outcome-list {
   list-style: none;
@@ -1209,11 +1249,16 @@ body[data-state="focus"] .panel-about {
 @media (max-width: 1100px) {
   #topNav { padding: 22px 32px; gap: 12px; }
 
+  :root {
+    --nav-about-bottom: 76px;   /* 导航略小 */
+    --bottom-bar-top: 52px;
+  }
+
   .intro-title { font-size: 28px; }
   .intro-text, .intro-bio {
     font-size: 13px;
     max-width: 340px;
-    max-height: 50vh;
+    /* ★ flex:1 自动撑满 */
   }
   .intro-name { font-size: 16px; }
   .intro-label { font-size: 10px; }
@@ -1266,14 +1311,15 @@ body[data-state="focus"] .panel-about {
   .lu-num { min-width: 38px; font-size: 10px; }
   .lu-name { font-size: 11px; }
 
+  /* ★ 小屏：面板改到底部，宽度满屏 */
   #intro-left {
     width: 100vw;
-    height: auto;
+    left: 0;
+    right: 0;
     top: auto;
     bottom: 130px;
-    left: 0;
+    height: 55vh;
     padding: 0 24px;
-    justify-content: flex-end;
   }
   #intro-right { display: none; }
   .intro-title { font-size: 26px; }
@@ -1281,8 +1327,8 @@ body[data-state="focus"] .panel-about {
   .intro-text,
   .intro-bio {
     max-width: 90vw;
-    max-height: 48vh;
     font-size: 13px;
+    /* flex:1 依然生效 */
   }
 
   .bottom-bar {

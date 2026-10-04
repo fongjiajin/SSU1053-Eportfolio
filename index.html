@@ -66,8 +66,8 @@
       </button>
 
       <div id="luMenu" class="lu-menu" aria-hidden="true">
-        <a class="lu-item" href="topic1.html"  data-lu="1"><span class="lu-num">LU 1</span><span class="lu-name">Introduction to Social Interaction</span></a>
-        <a class="lu-item" href="topic2.html"  data-lu="2"><span class="lu-num">LU 2</span><span class="lu-name">Fundamental of Communication</span></a>
+        <a class="lu-item" href="topic1.html"  data-lu="1"><span class="lu-num">LU 1</span><span class="lu-name">Introduction to Communication</span></a>
+        <a class="lu-item" href="topic2.html"  data-lu="2"><span class="lu-num">LU 2</span><span class="lu-name">Identity and Perception</span></a>
         <a class="lu-item" href="topic3.html"  data-lu="3"><span class="lu-num">LU 3</span><span class="lu-name">Communication Contexts</span></a>
         <a class="lu-item" href="topic4.html"  data-lu="4"><span class="lu-num">LU 4</span><span class="lu-name">Communication and Media</span></a>
         <a class="lu-item" href="topic5.html"  data-lu="5"><span class="lu-num">LU 5</span><span class="lu-name">Perception and Identity</span></a>
@@ -111,6 +111,21 @@
             individuals construct meaning, negotiate identities, and navigate
             the complex web of norms and expectations that hold societies
             together.
+          </p>
+          <p>
+            This course is designed to guide us through that complexity step
+            by step. Each learning unit focuses on a different aspect of the
+            process — from the basic model of communication and the way
+            identity and perception shape every message, to the role of
+            listening, conflict, and social media in modern life. Taken
+            together, these ten units form a complete picture of how humans
+            relate to one another.
+          </p>
+          <p>
+            My goal in this portfolio is not just to record what was taught,
+            but to trace how my own understanding has changed — how I have
+            become more aware of the messages I send, the assumptions I make,
+            and the relationships I build every day.
           </p>
         </div>
       </div>
@@ -193,19 +208,16 @@
             both ourselves and the people around us.
           </p>
           <p>
+            The course also teaches us to notice the subtle things — the
+            silence between words, the tone behind a sentence, the
+            expectations we bring into every conversation. These are the
+            details that determine whether a message lands or falls flat.
+          </p>
+          <p>
             By reflecting on these topics, I hope to become a more aware,
             empathetic, and effective communicator — not only in my future
             career, but in every relationship I build.
           </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="intro-block" data-float="true">
-      <div class="float-inner">
-        <div class="intro-hint">
-          <span class="dot"></span>
-          <span>Click the sphere to begin</span>
         </div>
       </div>
     </div>
@@ -255,15 +267,6 @@
         </div>
       </div>
     </div>
-
-    <div class="intro-block" data-float="true">
-      <div class="float-inner">
-        <div class="intro-hint">
-          <span class="dot"></span>
-          <span>Explore at your own pace</span>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -272,9 +275,10 @@
 <footer class="bottom-bar">
   <div class="hint-text" id="bottomHint">
     <span class="hint-dot"></span>
-    <span class="hint-label"><strong>Click the sphere to begin</strong></span></strong>
+    <span class="hint-label">Click the sphere to begin</span>
+  </div>
   <span class="bottom-divider">·</span>
-  <span class="credit-line"><strong> Created by Fong Jia Jin, 2026</strong></span> 
+  <span class="credit-line">Created by <strong>Fong Jia Jin</strong>, 2026</span>
   <button id="nextStateBtn" class="next-state-btn" aria-label="Next view" title="Next view">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -290,7 +294,7 @@
 </div>
 
 <!-- ===== 底部状态 ===== -->
-<div id="status">正在加载 3D 场景...</div>
+<div id="status">Loading 3D scene...</div>
 
 <!-- ===== 页面过渡黑幕 ===== -->
 <div id="transitionOverlay"></div>
@@ -413,9 +417,9 @@
   if (!btn) return;
 
   const hints = {
-    main: 'Click the sphere to begin',
-    about: 'Click the sphere to focus',
-    focus: 'Click a planet to open'
+    main: <strong>'Click the sphere to begin'</strong>,
+    about: <strong>'Click the sphere to focus'</strong>,
+    focus: <strong>'Click a planet to open'</strong>
   };
 
   function updateHint() {
@@ -446,7 +450,7 @@
 })();
 
 // ============================================================
-// 方案 C：滚轮滚动 + 上下高光线检测
+// 滚轮滚动 + 上下高光线检测（★ 增强版：容差 + 触摸支持）
 // ============================================================
 (function initScrollableText() {
   const scrollables = document.querySelectorAll('.intro-text, .intro-bio');
@@ -465,18 +469,45 @@
       el.classList.toggle('can-scroll-down', !atBottom);
     }
 
+    // ★ 滚轮：加容差，避免精确比较失效
     el.addEventListener('wheel', (e) => {
-      const canScroll = el.scrollHeight > el.clientHeight;
+      const canScroll = el.scrollHeight - el.clientHeight > 1;
       if (!canScroll) return;
 
-      const atTop = el.scrollTop === 0;
-      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+      const atTop = el.scrollTop <= 0;
+      const atBottom =
+        Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 1;
 
       if ((atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) return;
 
       e.preventDefault();
       e.stopPropagation();
       el.scrollTop += e.deltaY;
+    }, { passive: false });
+
+    // ★ 触摸设备支持
+    let touchStartY = 0;
+    el.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    el.addEventListener('touchmove', (e) => {
+      const canScroll = el.scrollHeight - el.clientHeight > 1;
+      if (!canScroll) return;
+
+      const currentY = e.touches[0].clientY;
+      const deltaY = touchStartY - currentY;
+
+      const atTop = el.scrollTop <= 0;
+      const atBottom =
+        Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 1;
+
+      if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      el.scrollTop += deltaY;
+      touchStartY = currentY;
     }, { passive: false });
 
     el.addEventListener('scroll', updateScrollHint, { passive: true });
