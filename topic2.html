@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LU 2 · Identity and Perception | SSU1053 e-Portfolio</title>
+
+<link rel="stylesheet" href="css/topic.css">
+</head>
+<body>
+
+<!-- ===== 星空画布 ===== -->
+<canvas id="topicStars"></canvas>
+
+<!-- ===== 行星 3D ===== -->
+<div id="sunContainer" data-model="models/mercury.glb"></div>
+
+<!-- ===== 顶部导航 ===== -->
+<nav id="topNav">
+  <a href="index.html" id="meteorLink" title="Home">
+    <span class="meteor">
+      <span class="meteor-dust">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="meteor-tail"></span>
+      <span class="meteor-core"></span>
+    </span>
+  </a>
+
+  <div class="nav-right">
+    <a href="index.html#about" class="nav-mini nav-about-link" title="About">
+      <span class="mini-blackhole">
+        <span class="mini-blackhole-glow"></span>
+        <span class="mini-blackhole-disk"></span>
+        <span class="mini-blackhole-ring"></span>
+        <span class="mini-blackhole-core"></span>
+      </span>
+      <span class="mini-label">About</span>
+    </a>
+
+    <div class="nav-topics-wrap">
+      <a href="index.html#topics" class="nav-mini nav-topics-link" title="Topics Reflection">
+        <span class="mini-solar">
+          <span class="mini-sun"></span>
+          <span class="mini-orbit orbit-1"><i></i></span>
+          <span class="mini-orbit orbit-2"><i></i></span>
+          <span class="mini-orbit orbit-3"><i></i></span>
+        </span>
+        <span class="mini-label">Topics</span>
+      </a>
+
+      <button id="luToggle" class="lu-toggle" aria-label="打开 LU 列表" aria-expanded="false">
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="luMenu" class="lu-menu" aria-hidden="true">
+        <a class="lu-item" href="topic1.html"  data-lu="1"><span class="lu-num">LU 1</span><span class="lu-name">Introduction to Communication</span></a>
+        <a class="lu-item" href="topic2.html"  data-lu="2"><span class="lu-num">LU 2</span><span class="lu-name">Identity and Perception</span></a>
+        <a class="lu-item" href="topic3.html"  data-lu="3"><span class="lu-num">LU 3</span><span class="lu-name">Communication Contexts</span></a>
+        <a class="lu-item" href="topic4.html"  data-lu="4"><span class="lu-num">LU 4</span><span class="lu-name">Communication and Media</span></a>
+        <a class="lu-item" href="topic5.html"  data-lu="5"><span class="lu-num">LU 5</span><span class="lu-name">Perception and Identity</span></a>
+        <a class="lu-item" href="topic6.html"  data-lu="6"><span class="lu-num">LU 6</span><span class="lu-name">Verbal and Nonverbal Messages</span></a>
+        <a class="lu-item" href="topic7.html"  data-lu="7"><span class="lu-num">LU 7</span><span class="lu-name">Listening</span></a>
+        <a class="lu-item" href="topic8.html"  data-lu="8"><span class="lu-num">LU 8</span><span class="lu-name">Interpersonal Relationship</span></a>
+        <a class="lu-item" href="topic9.html"  data-lu="9"><span class="lu-num">LU 9</span><span class="lu-name">Small Group & Organizational Communication</span></a>
+        <a class="lu-item" href="topic10.html" data-lu="10"><span class="lu-num">LU 10</span><span class="lu-name">Conflict Management & Social Media</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 主内容 ===== -->
+<main id="topicMain">
+
+  <header class="topic-header">
+    <div class="topic-meta">
+      <span class="topic-lu">LU 2</span>
+      <span class="topic-sep">/</span>
+      <span class="topic-week">Week 2</span>
+    </div>
+    <h1 class="topic-title">Identity and <strong>Perception</strong></h1>
+    <div class="topic-subtitle">Reflection · SSU1053 e-Portfolio</div>
+  </header>
+
+  <!-- ===== 1. Depth of Understanding ===== -->
+  <section class="reflection-section" data-index="1">
+    <div class="section-marker">
+      <span class="section-num">01</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Depth of Understanding</h2>
+    <div class="section-body">
+      <p>
+        LU2 introduced two deeply connected ideas: <em>identity</em> and
+        <em>perception</em>. Identity was defined as the answer to the
+        questions “Who am I?” and “Who are you?” — a person's perception of
+        self within a particular social, geographical, cultural, and
+        political context. What struck me most is the claim that identity is
+        <em>socially constructed</em>: it exists not in objective reality but
+        because humans agree it exists, and it is created, reflected, and
+        maintained through interactions with other people.
+      </p>
+      <p>
+        The lecture outlined seven characteristics of identity —
+        <em>multifaceted</em>, <em>social and personal</em>,
+        <em>salience and strength</em>, <em>fluid and stable</em>,
+        <em>avowed and ascribed</em>, <em>passing and outing</em>, and
+        <em>performance and expression</em>. Each one revealed how complex
+        the self really is. For example, the same person can be a mother, a
+        boss, a chef, and a friend — all at once — and which identity becomes
+        <em>salient</em> depends on the situation. The distinction between
+        <em>avowal</em> (what we declare about ourselves) and
+        <em>ascription</em> (what others assign to us) helped me see why
+        misunderstandings about identity happen so often.
+      </p>
+      <p>
+        The lecture then moved into the three fundamental aspects of the
+        self: <em>self-concept</em>, <em>self-awareness</em>, and
+        <em>self-esteem</em>. Carl Rogers' theory of self-concept
+        distinguishes the <em>self-image</em> (how I see myself), the
+        <em>ideal self</em> (how I wish I were), and <em>self-esteem</em>
+        (how much value I place on myself). The <em>Johari Window</em>
+        introduced four areas of self-awareness — Open, Blind, Hidden, and
+        Unknown — and showed that the goal of growth is to enlarge the Open
+        area through feedback and self-disclosure.
+      </p>
+      <p>
+        Finally, the lecture turned to <em>perception</em>: the process of
+        selecting, organizing, and interpreting people, objects, events, and
+        situations. Perception is influenced by physiological, psychological,
+        and social factors, and it is shaped by common tendencies such as
+        <em>snap judgments</em>, <em>clinging to first impressions</em>,
+        <em>self-serving bias</em>, <em>expectations</em>,
+        <em>focusing on the obvious</em>, and <em>assuming others are like
+        us</em>. The story of the six blind men and the elephant was a
+        perfect illustration: each person saw a different reality because
+        each touched a different part of the truth.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 2. My Reaction ===== -->
+  <section class="reflection-section" data-index="2">
+    <div class="section-marker">
+      <span class="section-num">02</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">My Reaction</h2>
+    <div class="section-body">
+      <p>
+        I came into this lecture thinking I already understood myself. I know
+        my name, my age, my hometown, my personality — what more is there to
+        know? By the end, I realised that I had been confusing
+        <em>knowing facts about myself</em> with <em>truly understanding my
+        identity</em>.
+      </p>
+      <p>
+        The idea that my identity is <em>fluid</em> rather than fixed was
+        strangely freeing. I used to think of myself as “a shy person” — as
+        if shyness was a permanent label. The lecture showed me that social
+        identities shift depending on whom I am with and what I am talking
+        about. I am quiet in a large lecture hall, but talkative in a small
+        group of close friends. Both are still me; neither is the “real” me.
+        Realising this made me less worried about being inconsistent.
+      </p>
+      <p>
+        The <em>Johari Window</em> was uncomfortable but useful. I had never
+        seriously considered that there is a <em>Blind area</em> — parts of me
+        that others see clearly but I cannot see at all. When I thought
+        about feedback I had received in the past — “you seem angry when
+        you're focused” — I realised those were glimpses into my blind spot.
+        I also had to admit that my <em>Hidden area</em> is quite large: there
+        are thoughts and feelings I rarely share with anyone.
+      </p>
+      <p>
+        The section on <em>perception</em> hit especially hard because I
+        recognised myself in almost every tendency. I make snap judgments, I
+        cling to first impressions, and — most embarrassingly — I am much
+        more forgiving of my own mistakes than of others'. The
+        <em>self-serving bias</em> slide felt like a mirror I did not want to
+        look into, but needed to.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 3. Practice / Application ===== -->
+  <section class="reflection-section" data-index="3">
+    <div class="section-marker">
+      <span class="section-num">03</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Practice / Application</h2>
+    <div class="section-body">
+      <p>
+        Since LU2, I have started applying several ideas from the lecture in
+        my daily life.
+      </p>
+      <p>
+        First, I am trying to <em>shrink my Blind area</em> by actively asking
+        for feedback. After a group presentation, I asked a teammate what I
+        could have done better. She told me I speak too quickly when nervous
+        — something I had never noticed. That feedback alone was worth more
+        than hours of self-reflection, because it came from outside my own
+        perspective.
+      </p>
+      <p>
+        Second, I am practising <em>slowing down my snap judgments</em>. The
+        lecture emphasised that we often form opinions within seconds, based
+        on incomplete information. When I meet someone new, I now try to
+        notice my first impression without immediately accepting it as truth.
+        This has made me less quick to label people as “friendly”,
+        “difficult”, or “boring” — labels that used to close off any
+        possibility of real understanding.
+      </p>
+      <p>
+        Third, I am working on <em>self-concept improvement</em>, following
+        the lecture's guidelines: making a firm commitment to personal
+        growth, seeking realistic goals, and avoiding self-sabotage. One
+        small habit I have adopted is <em>secure affirmation</em> — I write
+        short “I can” statements before exams or presentations to remind
+        myself of what I have already achieved. It sounds small, but it has
+        noticeably reduced my anxiety.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 4. Benefit for Daily Life / Future ===== -->
+  <section class="reflection-section" data-index="4">
+    <div class="section-marker">
+      <span class="section-num">04</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Benefit for Daily Life / Future</h2>
+    <div class="section-body">
+      <p>
+        Understanding identity and perception gives me tools that will serve
+        me far beyond this course.
+      </p>
+      <p>
+        In my <em>future career</em>, I will work with people from many
+        different backgrounds. Knowing that identity is
+        <em>socially constructed</em> and shaped by culture, geography, and
+        politics will help me avoid the trap of assuming that everyone
+        thinks the way I do. When a colleague behaves in a way I find
+        strange, I will remind myself that their identity and perception
+        have been shaped by experiences I cannot see. This will make me more
+        patient, more curious, and less judgmental.
+      </p>
+      <p>
+        In my <em>personal relationships</em>, the Johari Window and the
+        principles of perception will help me communicate more openly. By
+        expanding my Open area through self-disclosure, I can build deeper
+        trust with the people around me. By remembering that my perception
+        is only one perspective — like one of the six blind men — I can
+        listen more carefully to how others see the same situation.
+      </p>
+      <p>
+        Long term, I believe this lecture marks a shift in how I understand
+        myself and others. Identity is not something I simply have; it is
+        something I constantly create through interaction. Perception is not
+        a passive recording of reality; it is an active process I can shape
+        through awareness and reflection. Carrying this awareness into the
+        rest of my life will, I hope, make me a more thoughtful and
+        empathetic person.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页面过渡黑幕 ===== -->
+<div id="transitionOverlay"></div>
+
+<div id="scrollProgress"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/topic-sun.js"></script>
+<script src="js/topic.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LU 3 · Reflection | SSU1053 e-Portfolio</title>
+
+<link rel="stylesheet" href="css/topic.css">
+</head>
+<body>
+
+<canvas id="topicStars"></canvas>
+<div id="sunContainer" data-model="models/venus.glb"></div>
+
+<nav id="topNav">
+  <a href="index.html" id="meteorLink" title="Home">
+    <span class="meteor">
+      <span class="meteor-dust">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="meteor-tail"></span>
+      <span class="meteor-core"></span>
+    </span>
+  </a>
+
+  <div class="nav-right">
+    <a href="index.html#about" class="nav-mini nav-about-link" title="About">
+      <span class="mini-blackhole">
+        <span class="mini-blackhole-glow"></span>
+        <span class="mini-blackhole-disk"></span>
+        <span class="mini-blackhole-ring"></span>
+        <span class="mini-blackhole-core"></span>
+      </span>
+      <span class="mini-label">About</span>
+    </a>
+
+    <div class="nav-topics-wrap">
+      <a href="index.html#topics" class="nav-mini nav-topics-link" title="Topics Reflection">
+        <span class="mini-solar">
+          <span class="mini-sun"></span>
+          <span class="mini-orbit orbit-1"><i></i></span>
+          <span class="mini-orbit orbit-2"><i></i></span>
+          <span class="mini-orbit orbit-3"><i></i></span>
+        </span>
+        <span class="mini-label">Topics</span>
+      </a>
+
+      <button id="luToggle" class="lu-toggle" aria-label="打开 LU 列表" aria-expanded="false">
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="luMenu" class="lu-menu" aria-hidden="true">
+        <a class="lu-item" href="topic1.html"  data-lu="1"><span class="lu-num">LU 1</span><span class="lu-name">[Topic 1 Name]</span></a>
+        <a class="lu-item" href="topic2.html"  data-lu="2"><span class="lu-num">LU 2</span><span class="lu-name">[Topic 2 Name]</span></a>
+        <a class="lu-item" href="topic3.html"  data-lu="3"><span class="lu-num">LU 3</span><span class="lu-name">[Topic 3 Name]</span></a>
+        <a class="lu-item" href="topic4.html"  data-lu="4"><span class="lu-num">LU 4</span><span class="lu-name">[Topic 4 Name]</span></a>
+        <a class="lu-item" href="topic5.html"  data-lu="5"><span class="lu-num">LU 5</span><span class="lu-name">[Topic 5 Name]</span></a>
+        <a class="lu-item" href="topic6.html"  data-lu="6"><span class="lu-num">LU 6</span><span class="lu-name">[Topic 6 Name]</span></a>
+        <a class="lu-item" href="topic7.html"  data-lu="7"><span class="lu-num">LU 7</span><span class="lu-name">[Topic 7 Name]</span></a>
+        <a class="lu-item" href="topic8.html"  data-lu="8"><span class="lu-num">LU 8</span><span class="lu-name">[Topic 8 Name]</span></a>
+        <a class="lu-item" href="topic9.html"  data-lu="9"><span class="lu-num">LU 9</span><span class="lu-name">[Topic 9 Name]</span></a>
+        <a class="lu-item" href="topic10.html" data-lu="10"><span class="lu-num">LU 10</span><span class="lu-name">[Topic 10 Name]</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="topicMain">
+
+  <header class="topic-header">
+    <div class="topic-meta">
+      <span class="topic-lu">LU 3</span>
+      <span class="topic-sep">/</span>
+      <span class="topic-week">Week 3</span>
+    </div>
+    <h1 class="topic-title">[Topic 3 Name]</h1>
+    <div class="topic-subtitle">Reflection · SSU1053 e-Portfolio</div>
+  </header>
+
+  <section class="reflection-section" data-index="1">
+    <div class="section-marker">
+      <span class="section-num">01</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Depth of Understanding</h2>
+    <div class="section-body">
+      <p>写你理解到的理论、概念、策略。用 2–3 段展开，可以提到课堂上学到的具体概念，并解释为什么重要。</p>
+      <p>例如：这一课介绍了 ______。我理解到 ______ 的核心是 ______，它的重要性在于 ______。</p>
+    </div>
+  </section>
+
+  <section class="reflection-section" data-index="2">
+    <div class="section-marker">
+      <span class="section-num">02</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">My Reaction</h2>
+    <div class="section-body">
+      <p>写你以前是否知道这个主题，现在有什么改变。诚实表达，可以讲故事。</p>
+      <p>例如：在学习这一课之前，我以为 ______。现在我发现 ______，这让我对 ______ 有了新的看法。</p>
+    </div>
+  </section>
+
+  <section class="reflection-section" data-index="3">
+    <div class="section-marker">
+      <span class="section-num">03</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Practice / Application</h2>
+    <div class="section-body">
+      <p>写你打算怎么应用这个知识，给具体例子。</p>
+      <p>例如：我计划在 ______ 中应用它。具体来说，我会 ______，因为 ______。</p>
+    </div>
+  </section>
+
+  <section class="reflection-section" data-index="4">
+    <div class="section-marker">
+      <span class="section-num">04</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Benefit for Daily Life / Future</h2>
+    <div class="section-body">
+      <p>写对未来职业、生活、社交的帮助。</p>
+      <p>例如：在未来 ______ 的场景中，这个知识能帮我 ______。长期来看，它会让我 ______。</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="transitionOverlay"></div>
+<div id="scrollProgress"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/topic-sun.js"></script>
+<script src="js/topic.js"></script>
+
+</body>
+</html>

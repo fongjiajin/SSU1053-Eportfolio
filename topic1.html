@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LU 1 · Introduction to Communication | SSU1053 e-Portfolio</title>
+
+<link rel="stylesheet" href="css/topic.css">
+</head>
+<body>
+
+<!-- ===== 星空画布 ===== -->
+<canvas id="topicStars"></canvas>
+
+<!-- ===== 太阳 3D ===== -->
+<div id="sunContainer" data-model="models/sun.glb"></div>
+
+<!-- ===== 顶部导航 ===== -->
+<nav id="topNav">
+  <a href="index.html" id="meteorLink" title="Home">
+    <span class="meteor">
+      <span class="meteor-dust">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="meteor-tail"></span>
+      <span class="meteor-core"></span>
+    </span>
+  </a>
+
+  <div class="nav-right">
+    <a href="index.html#about" class="nav-mini nav-about-link" title="About">
+      <span class="mini-blackhole">
+        <span class="mini-blackhole-glow"></span>
+        <span class="mini-blackhole-disk"></span>
+        <span class="mini-blackhole-ring"></span>
+        <span class="mini-blackhole-core"></span>
+      </span>
+      <span class="mini-label">About</span>
+    </a>
+
+    <div class="nav-topics-wrap">
+      <a href="index.html#topics" class="nav-mini nav-topics-link" title="Topics Reflection">
+        <span class="mini-solar">
+          <span class="mini-sun"></span>
+          <span class="mini-orbit orbit-1"><i></i></span>
+          <span class="mini-orbit orbit-2"><i></i></span>
+          <span class="mini-orbit orbit-3"><i></i></span>
+        </span>
+        <span class="mini-label">Topics</span>
+      </a>
+
+      <button id="luToggle" class="lu-toggle" aria-label="打开 LU 列表" aria-expanded="false">
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="luMenu" class="lu-menu" aria-hidden="true">
+        <a class="lu-item" href="topic1.html"  data-lu="1"><span class="lu-num">LU 1</span><span class="lu-name">Introduction to Communication</span></a>
+        <a class="lu-item" href="topic2.html"  data-lu="2"><span class="lu-num">LU 2</span><span class="lu-name">Fundamental of Communication</span></a>
+        <a class="lu-item" href="topic3.html"  data-lu="3"><span class="lu-num">LU 3</span><span class="lu-name">Communication Contexts</span></a>
+        <a class="lu-item" href="topic4.html"  data-lu="4"><span class="lu-num">LU 4</span><span class="lu-name">Communication and Media</span></a>
+        <a class="lu-item" href="topic5.html"  data-lu="5"><span class="lu-num">LU 5</span><span class="lu-name">Perception and Identity</span></a>
+        <a class="lu-item" href="topic6.html"  data-lu="6"><span class="lu-num">LU 6</span><span class="lu-name">Verbal and Nonverbal Messages</span></a>
+        <a class="lu-item" href="topic7.html"  data-lu="7"><span class="lu-num">LU 7</span><span class="lu-name">Listening</span></a>
+        <a class="lu-item" href="topic8.html"  data-lu="8"><span class="lu-num">LU 8</span><span class="lu-name">Interpersonal Relationship</span></a>
+        <a class="lu-item" href="topic9.html"  data-lu="9"><span class="lu-num">LU 9</span><span class="lu-name">Small Group & Organizational Communication</span></a>
+        <a class="lu-item" href="topic10.html" data-lu="10"><span class="lu-num">LU 10</span><span class="lu-name">Conflict Management & Social Media</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 主内容 ===== -->
+<main id="topicMain">
+
+  <header class="topic-header">
+    <div class="topic-meta">
+      <span class="topic-lu">LU 1</span>
+      <span class="topic-sep">/</span>
+      <span class="topic-week">Week 1</span>
+    </div>
+    <h1 class="topic-title">Introduction to <strong>Communication</strong></h1>
+    <div class="topic-subtitle">Reflection · SSU1053 e-Portfolio</div>
+  </header>
+
+  <!-- ===== 1. Depth of Understanding ===== -->
+  <section class="reflection-section" data-index="1">
+    <div class="section-marker">
+      <span class="section-num">01</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Depth of Understanding</h2>
+    <div class="section-body">
+      <p>
+        Before this lecture, I thought communication simply meant talking or
+        writing to someone. LU1 completely changed that view. The lecture
+        defined communication as a <em>dynamic, ongoing process</em> — not a
+        single act, but a continuous cycle in which people observe, interpret,
+        and adjust their behaviour toward one another. Communication is
+        described as <em>an action on others, an interaction with others, and
+        a reaction to others</em> (McQuail &amp; Windahl, 1993), and this
+        three-part definition helped me see it as something active rather
+        than passive.
+      </p>
+      <p>
+        The lecture introduced the <em>communication process model</em>:
+        a sender encodes a message, the message travels through a channel,
+        the receiver decodes it, and feedback flows back to the sender. This
+        model showed me that meaning is never transferred directly — it must
+        be <em>encoded and decoded</em>, and misunderstanding happens when
+        sender and receiver do not share at least <em>some common code</em>.
+      </p>
+      <p>
+        I also learned about the <em>seven principles of communication</em>:
+        it is a dynamic process, symbolic, systematic, involves making
+        inferences, is self-reflective, has consequences, and is complex.
+        Among them, the idea that communication is <em>symbolic</em> stood
+        out — the words, gestures, and images we use are arbitrary and
+        subjective, which means the same message can be interpreted very
+        differently by different people. The lecture also introduced six
+        <em>types of communication</em>: intrapersonal, interpersonal,
+        mediated interpersonal, small group, organizational, and public
+        communication. Seeing these types laid out side by side made me
+        realise that communication operates on many different levels, from
+        the silent conversations inside my own head to the formal
+        interactions of a workplace.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 2. My Reaction ===== -->
+  <section class="reflection-section" data-index="2">
+    <div class="section-marker">
+      <span class="section-num">02</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">My Reaction</h2>
+    <div class="section-body">
+      <p>
+        I will be honest — when I first saw the topic title “Introduction to
+        Communication,” I assumed it would be a simple recap of things I
+        already knew. After all, I have been communicating my whole life.
+        But the lecture surprised me in two ways.
+      </p>
+      <p>
+        First, I had never thought about the <em>intrapersonal</em> type of
+        communication before. I always imagined communication as something
+        that happens <em>between</em> people. The idea that I communicate
+        with myself — through reflection, self-talk, or even daydreaming —
+        made me pause. It explained why my thoughts often feel like a
+        conversation I am having with myself, and why the way I talk to
+        myself affects my mood so strongly.
+      </p>
+      <p>
+        Second, the principle that communication is <em>self-reflective</em>
+        hit close to home. I realised that in the middle of a conversation,
+        I often evaluate myself — “Did that sound rude?”, “Should I have
+        said that?” — and that self-evaluation changes how I continue the
+        conversation. I had never labelled this as part of communication
+        before; I just thought of it as overthinking. Now I see it as an
+        essential feature of being a communicator.
+      </p>
+      <p>
+        The lecture also reminded me that communication <em>always has
+        consequences</em> — even silence is a message. This was
+        uncomfortable to accept, because I know I have used silence as a
+        way to avoid difficult conversations, not realising that it was
+        still sending a message I did not intend.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 3. Practice / Application ===== -->
+  <section class="reflection-section" data-index="3">
+    <div class="section-marker">
+      <span class="section-num">03</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Practice / Application</h2>
+    <div class="section-body">
+      <p>
+        From this lecture, I have started applying three things in my daily
+        life.
+      </p>
+      <p>
+        First, I now <em>pause before I reply</em>. When I remind myself that
+        communication is a process of encoding and decoding, I stop assuming
+        that the other person understood what I meant. I try to phrase my
+        message more clearly and, if needed, ask the other person to repeat
+        what they heard. This small habit has already reduced
+        misunderstandings with my coursemates during group work.
+      </p>
+      <p>
+        Second, I try to be more <em>mindful of my nonverbal signals</em>.
+        Since the lecture stressed that gestures, facial expressions, and
+        even clothing carry meaning, I started noticing how my posture and
+        tone shift when I am tired or frustrated. During a recent study
+        group, I realised that my arms were crossed even though I was
+        listening carefully — my friend later told me she thought I was
+        disagreeing. Now I deliberately keep my body language open to
+        match my actual intentions.
+      </p>
+      <p>
+        Finally, I am practising <em>giving feedback</em>. Instead of
+        ending a conversation with a simple “okay,” I try to respond with
+        something specific — a follow-up question, a short summary, or a
+        small reaction — so the other person knows their message was
+        received. This has made my conversations feel more complete.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 4. Benefit for Daily Life / Future ===== -->
+  <section class="reflection-section" data-index="4">
+    <div class="section-marker">
+      <span class="section-num">04</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Benefit for Daily Life / Future</h2>
+    <div class="section-body">
+      <p>
+        Understanding communication as a dynamic, symbolic, and systematic
+        process gives me real advantages in both my personal and professional
+        life.
+      </p>
+      <p>
+        In my <em>future career</em>, I know I will need to communicate with
+        colleagues, clients, and superiors across different channels — emails,
+        meetings, presentations, and casual chats. Knowing that every message
+        is encoded and decoded means I will take extra care to write clearly,
+        confirm understanding, and ask for feedback rather than assuming
+        everyone interprets things the same way. The lecture also taught me
+        that communication is <em>systematic</em> — the setting, timing, and
+        number of people all shape the meaning of a message. This reminds me
+        to choose the right time and channel for important conversations.
+      </p>
+      <p>
+        In my <em>personal and social life</em>, the principle that
+        communication is <em>self-reflective</em> will help me be more aware
+        of my own behaviour during conversations. Instead of reacting
+        automatically, I can step back, notice how I am coming across, and
+        adjust if needed. This will help me build deeper relationships and
+        avoid unnecessary conflict.
+      </p>
+      <p>
+        Long term, I hope this lecture marks the beginning of a more
+        thoughtful way of communicating — one that is deliberate, empathetic,
+        and aware of the consequences every message carries.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页面过渡黑幕 ===== -->
+<div id="transitionOverlay"></div>
+
+<div id="scrollProgress"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/topic-sun.js"></script>
+<script src="js/topic.js"></script>
+
+</body>
+</html>
