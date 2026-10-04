@@ -813,6 +813,7 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    font-weight: 700;          /* ★ 整行加粗 */
   }
 
   .bottom-bar > * {
@@ -823,7 +824,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #64748b;
+    color: rgb(195, 206, 220);
     transition: color .3s ease;
   }
 
@@ -850,7 +851,7 @@
 
   .credit-line strong {
     color: #93c5fd;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .next-state-btn {
